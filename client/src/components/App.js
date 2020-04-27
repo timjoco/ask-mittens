@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
-import Header from './Header'
-import Landing from './Landing'
-import Home from './Home'
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Header from './Header/Header';
+import Landing from './Landing';
+import Home from './Home';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  
+
   render() {
     return (
       <div>
@@ -20,9 +20,9 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
           </div>
-      </BrowserRouter>
-    </div>
-    )
+        </BrowserRouter>
+      </div>
+    );
   }
 }
 

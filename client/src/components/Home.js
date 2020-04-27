@@ -1,9 +1,15 @@
 import React from 'react';
+import Cat from './Cat/Cat';
 
 const Home = () => {
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>This is the home page</h1>
+      <div class="row"></div>
+      <div class="col s12 m4">
+        <h5>Section 1</h5>
+        <p>Stuff</p>
+      </div>
+      <div class="row"></div>
     </div>
   );
 };
