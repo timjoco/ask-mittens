@@ -1,5 +1,4 @@
 import React from 'react';
-import Cat from './Cat/Cat';
 
 const Home = () => {
   return (

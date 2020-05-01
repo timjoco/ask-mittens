@@ -1,0 +1,27 @@
+.cat-image-landing {
+  position: absolute;
+  height: 500px;
+  justify-content: center;
+  margin: auto;
+  top: 80px;
+  bottom: 0px;
+  left: 190px;
+  right: 0;
+}
+
+.header-landing {
+  color: rgba(0, 0, 0, 0.53);
+  padding: 14px 0;
+  height: 64px;
+  line-height: 36px;
+  font-size: 6rem;
+}
+
+.borderBox {
+  color: rgba(0, 0, 0, 0.53);
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 20px 0;
+  height: 64px;
+  line-height: 36px;
+  font-size: 2.5rem;
+}
