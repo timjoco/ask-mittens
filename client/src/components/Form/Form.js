@@ -13,16 +13,14 @@ class Form extends React.Component {
                 type="text"
                 className="validate"
               />
-              <label for="first_name"></label>
             </div>
             <div className="input-field col s6">
               <input
                 placeholder="Last Name"
                 id="last_name"
                 type="text"
-                classNamess="validate"
+                className="validate"
               />
-              <label for="last_name"></label>
             </div>
           </div>
 
@@ -34,18 +32,16 @@ class Form extends React.Component {
                 type="email"
                 className="validate"
               />
-              <label for="email"></label>
             </div>
           </div>
 
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <textarea
                 placeholder="Ask about your cat!"
                 id="textarea1"
-                class="materialize-textarea"
+                className="materialize-textarea"
               ></textarea>
-              <label for="textarea1"></label>
             </div>
           </div>
         </form>
