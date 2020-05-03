@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Profile.css';
 
 class Profile extends Component {
   renderProfile() {
@@ -14,7 +15,13 @@ class Profile extends Component {
     }
   }
   render() {
-    return <div style={{ textAlign: 'center' }}>{this.renderProfile()}</div>;
+    return (
+      <div className="page-container">
+        <div className="content-wrap">
+          <div style={{ textAlign: 'center' }}>{this.renderProfile()}</div>;
+        </div>
+      </div>
+    );
   }
 }
 
