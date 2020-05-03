@@ -1,6 +1,5 @@
 import React from 'react';
 import './Landing.css';
-import Logo from '../../mittens-logo.png';
 
 const Landing = () => {
   return (
@@ -18,9 +17,6 @@ const Landing = () => {
             A self-help page for the everyday cat owner
           </div>
         </div>
-      </div>
-      <div>
-        <img src={Logo} alt="Mittens" className="cat-image-landing" />
       </div>
     </div>
   );

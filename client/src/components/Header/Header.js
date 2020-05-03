@@ -6,13 +6,26 @@ class Header extends Component {
   renderContentLogin() {
     if (this.props.auth) {
       return [
-        <li key="1" style={{ margin: '0 10px' }}>
-          <a href="sass.html">Welcome, {this.props.auth.username}</a>
+        <li key="1">
+          <Link to="/home/blog">
+            <button className=" waves-effect waves-light btn">
+              Mittens' Blog
+            </button>
+          </Link>
         </li>,
-        <li key="2" style={{ margin: '0 10px' }}>
-          <a href="badges.html">Ask Me A Question</a>
+        <li key="2">
+          <Link to="/home/form">
+            <button className=" waves-effect waves-light btn">
+              Ask Mittens A Question
+            </button>
+          </Link>
         </li>,
-        <li key="3" style={{ margin: '0 10px' }}>
+        <li key="3">
+          <Link to="/home/profile">
+            <button className=" waves-effect waves-light btn">Profile</button>
+          </Link>
+        </li>,
+        <li key="4">
           <a href="/api/logout" className=" waves-effect waves-light btn">
             Logout
           </a>
@@ -36,14 +49,14 @@ class Header extends Component {
           <Link
             to={this.props.auth ? '/home' : '/'}
             className="brand-logo left"
-            style={{ margin: '0 10px' }}
+            style={{ margin: '0 20px' }}
           >
             Ask Mittens
           </Link>
           <ul>
-            <li id="nav-mobile" className="right">
+            <div id="nav-mobile" className="right">
               {this.renderContentLogin()}
-            </li>
+            </div>
           </ul>
         </div>
       </nav>
