@@ -6,6 +6,7 @@ class Form extends React.Component {
     return (
       <div className="container">
         <div style={{ textAlign: 'center' }} className="page-container">
+          <h1>Ask Mittens a Question</h1>
           <div className="content-wrap">
             <form className="col s12">
               <div className="row">
