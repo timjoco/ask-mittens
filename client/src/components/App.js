@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header/Header';
 import Landing from './Landing/Landing';
 import Home from './Home/Home';
-import Form from './Form/Form';
+import MittensForm from './Form/MittensForm';
 import Profile from './Profile/Profile';
 import Blog from './Blog/Blog';
 import Post from './Blog/Post';
@@ -18,25 +19,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="page-containter">
-        <div className="content-wrap">
-          <div>
+      <div>
+        <div className="page-container">
+          <div className="content-wrap">
             <BrowserRouter>
-              <div>
-                <Header />
-                <Switch>
-                  <Route exact path="/" component={Landing} />
-                  <Route exact path="/home" component={Home} />
-                  <Route exact path="/home/form" component={Form} />
-                  <Route exact path="/home/profile" component={Profile} />
-                  <Route exact path="/home/blog" component={Blog} />
-                  <Route path="/blog/:slug" render={Post} />
-                </Switch>
-              </div>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/forms" component={MittensForm} />
+                <Route exact path="/profile" component={Profile} />
+                <Route exact path="/blog" component={Blog} />
+                <Route path="/blog/:slug" render={Post} />
+              </Switch>
             </BrowserRouter>
           </div>
-          <Footer />
         </div>
+        <Footer />
       </div>
     );
   }

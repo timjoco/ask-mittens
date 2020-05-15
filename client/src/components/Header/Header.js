@@ -1,65 +1,105 @@
 import React, { Component } from 'react';
+import './Header.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { List, ListItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import styles from './headerStyle';
+
+// import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
   renderContentLogin() {
+    const flexContainer = {
+      display: 'flex',
+      flexDirection: 'row',
+      padding: '20px',
+      fontSize: '5px',
+    };
     if (this.props.auth) {
       return [
-        <li key="1">
-          <Link to="/home/blog">
-            <button className=" waves-effect waves-light btn">
-              Mittens' Blog
-            </button>
-          </Link>
-        </li>,
-        <li key="2">
-          <Link to="/home/form">
-            <button className=" waves-effect waves-light btn">
-              Ask Mittens A Question
-            </button>
-          </Link>
-        </li>,
-        <li key="3">
-          <Link to="/home/profile">
-            <button className=" waves-effect waves-light btn">Profile</button>
-          </Link>
-        </li>,
-        <li key="4">
-          <a href="/api/logout" className=" waves-effect waves-light btn">
-            Logout
-          </a>
-        </li>,
+        <List style={flexContainer}>
+          <ListItem key="askQuestion">
+            <a href="/forms" style={{ textDecoration: 'none' }}>
+              <Button>Ask</Button>
+            </a>
+          </ListItem>
+          <ListItem key="blog">
+            <a href="/blog" style={{ textDecoration: 'none' }}>
+              <Button>Blog</Button>
+            </a>
+          </ListItem>
+
+          <ListItem key="3">
+            <a href="/profile" style={{ textDecoration: 'none' }}>
+              <Button>Profile</Button>
+            </a>
+          </ListItem>
+          <ListItem key="logout">
+            <a href="/api/logout" style={{ textDecoration: 'none' }}>
+              <Button>Logout</Button>
+            </a>
+          </ListItem>
+        </List>,
       ];
     } else {
       return (
-        <li>
-          <a href="/auth/google" className="waves-effect waves-light btn">
-            Login With Google
-          </a>
-        </li>
+        <a href="/auth/google" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            color="accent"
+            style={{
+              backgroundColor: '#F0EAD6',
+              borderRadius: 35,
+              fontSize: '14px',
+              marginTop: '12px',
+            }}
+          >
+            Get Started
+          </Button>
+        </a>
       );
     }
   }
 
   render() {
     return (
-      <nav className="deep-purple lighten-2">
-        <div className="nav-wrapper">
-          <Link
-            to={this.props.auth ? '/home' : '/'}
-            className="brand-logo left"
-            style={{ margin: '0 20px' }}
-          >
-            Ask Mittens
-          </Link>
-          <ul>
-            <div id="nav-mobile" className="right">
-              {this.renderContentLogin()}
-            </div>
-          </ul>
-        </div>
-      </nav>
+      <div>
+        <AppBar
+          position="static"
+          style={{ backgroundColor: '#7550a6' }}
+          elevation={0}
+          className="list"
+        >
+          <Toolbar>
+            <Grid justify="space-between" container spacing={1}>
+              <Link to={this.props.auth ? '/home' : '/'}>
+                <Typography variant="h2">
+                  <Box
+                    style={{
+                      color: '#F0EAD6',
+                      fontSize: '30px',
+                      paddingTop: '30px',
+                      display: 'inline-block',
+                    }}
+                  >
+                    ask mittens
+                  </Box>
+                </Typography>
+              </Link>
+              <ul>
+                <div>{this.renderContentLogin()}</div>
+              </ul>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+      </div>
     );
   }
 }

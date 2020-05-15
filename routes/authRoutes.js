@@ -4,7 +4,7 @@ module.exports = (app) => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {
-      scope: ['profile', 'email'], // Specifies to google what access we want - in this case, profile and email - from a users account
+      scope: ['profile', 'https://mail.google.com/'], // Specifies to google what access we want - in this case, profile and email - from a users account
     })
   );
 
@@ -23,6 +23,6 @@ module.exports = (app) => {
 
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
-    // console.log(req.user)
+    // console.log(req.user);
   });
 };

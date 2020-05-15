@@ -5,11 +5,15 @@
   box-shadow: 0 2px 3px #ccc;
   padding: 16px;
   text-align: center;
+  background-color: white;
 }
 
-.cat-image-home {
-  position: relative;
-  justify-content: center;
-  top: 5px;
-  left: 0px;
+.home {
+  background-color: #7550a6;
+}
+
+.home-header {
+  margin: 0px;
+  font-family: 'Josefina', sans-serif;
+  padding: 0, 0;
 }

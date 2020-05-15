@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 import './Profile.css';
 
 class Profile extends Component {
@@ -7,20 +9,24 @@ class Profile extends Component {
     if (this.props.auth) {
       return (
         <div>
-          <p> Hello: {this.props.auth.username}</p>
+          <h1> Welcome {this.props.auth.username}</h1>
         </div>
       );
     } else {
       return <div>please login!</div>;
     }
   }
+
   render() {
     return (
-      <div className="page-container">
-        <div className="content-wrap">
-          <div style={{ textAlign: 'center' }}>{this.renderProfile()}</div>;
+      <Container>
+        <CssBaseline />
+        <div style={{ textAlign: 'center' }}>
+          {this.renderProfile()}
+          <p>Profile Page Is In Development...</p>
         </div>
-      </div>
+        ;
+      </Container>
     );
   }
 }

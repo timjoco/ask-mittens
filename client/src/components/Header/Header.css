@@ -1,0 +1,15 @@
+.header {
+  background-color: #7550a6;
+}
+.container,
+.list {
+  margin-bottom: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.inlineBlock {
+  display: inline-block;
+  padding: 0px;
+  width: auto;
+}

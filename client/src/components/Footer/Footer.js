@@ -1,34 +1,60 @@
 import React from 'react';
-import './Footer.css';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { List, ListItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import styles from './footerStyle';
 
-const Footer = () => {
+const useStyles = makeStyles(styles);
+
+export default function Footer(props) {
+  const classes = useStyles();
+  const { whiteFont } = props;
+  const footerClasses = classNames({
+    [classes.footer]: true,
+    [classes.footerWhiteFont]: whiteFont,
+  });
+
   return (
-    <div className="footer" style={{ textAlign: 'center' }}>
-      <footer className="page-footer deep-purple lighten-2">
-        <p className="grey-text text-lighten-4">Created by Tim O'Connor</p>
-        <a
-          href="https://github.com/timjoco"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <i className="fab fa-github fa-lg"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/timjoco/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <i className="fab fa-linkedin fa-lg"></i>
-        </a>
+    <footer className={footerClasses}>
+      <div className={classes.container}>
+        <div className={classes.center}>
+          <List className={classes.inlineBlock}>
+            <ListItem>
+              <div>
+                @{new Date().getFullYear()} {''} || Created by Tim O'Connor
+                {''}
+              </div>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a
+                href="https://github.com/timjoco"
+                className={classes.block}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <i className="fab fa-github fa-2x"></i>
+              </a>
+            </ListItem>
 
-        <div className="footer-copyright">
-          <div className="container">
-            @{new Date().getFullYear()} All Rights Reserved
-          </div>
+            <ListItem className={classes.inlineBlock}>
+              <a
+                href="https://www.linkedin.com/in/timjoco/"
+                className={classes.block}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <i className="fab fa-linkedin fa-2x"></i>
+              </a>
+            </ListItem>
+          </List>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
-};
+}
 
-export default Footer;
+Footer.propTypes = {
+  whiteFont: PropTypes.bool,
+};

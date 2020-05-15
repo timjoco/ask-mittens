@@ -1,26 +1,33 @@
 import React from 'react';
 import './Landing.css';
+import { makeStyles } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+}));
 
 const Landing = () => {
+  const classes = useStyles();
   return (
-    <div className="page-container">
-      <div style={{ textAlign: 'center' }} className="content-wrap">
-        <div className="containter">
-          <div className="row center">
-            <div className="col s12 m10 offset-m1">
-              <h1 className="header-landing">ASK MITTENS</h1>
-            </div>
-          </div>
-        </div>
-        <div className="borderBox">
-          <div className="containter">
-            <div className="col s12 m10 offset-m1">
-              A self-help page for the everyday cat owner
-            </div>
-          </div>
-        </div>
+    <Container>
+      <div className={classes.container}>
+        <CssBaseline />
+        <Typography variant="h1">
+          <Box textAlign="center" m={15}>
+            a self-help tool for the everyday cat owner
+          </Box>
+        </Typography>
       </div>
-    </div>
+    </Container>
   );
 };
 
