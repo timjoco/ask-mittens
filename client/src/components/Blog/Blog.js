@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import butter from '../../butter-client';
 import PostSnippet from './PostSnippet';
-import Footer from '../Footer/Footer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles, Container, Typography } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import './Blog.css';
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-}));
 const Blog = () => {
-  const classes = useStyles;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [data, setData] = useState(null);
@@ -62,7 +52,6 @@ const Blog = () => {
           mittens' blog
         </Typography>
         {getContent()}
-        <Footer />
       </div>
     </Container>
   );

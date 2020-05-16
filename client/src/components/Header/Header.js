@@ -3,14 +3,12 @@ import './Header.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { List, ListItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import styles from './headerStyle';
 
 // import MenuIcon from '@material-ui/icons/Menu';
 
@@ -55,7 +53,7 @@ class Header extends Component {
             variant="contained"
             color="accent"
             style={{
-              backgroundColor: '#F0EAD6',
+              backgroundColor: 'white',
               borderRadius: 35,
               fontSize: '14px',
               marginTop: '12px',
@@ -83,7 +81,7 @@ class Header extends Component {
                 <Typography variant="h2">
                   <Box
                     style={{
-                      color: '#F0EAD6',
+                      color: 'white',
                       fontSize: '30px',
                       paddingTop: '30px',
                       display: 'inline-block',

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { List, ListItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
 import styles from './footerStyle';
 
 const useStyles = makeStyles(styles);

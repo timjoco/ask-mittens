@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  makeStyles,
-  MuiThemeProvider,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
