@@ -1,4 +1,5 @@
 import React from 'react';
+// import WelcomeContent from './WelcomeContent/WelcomeContent';
 import { makeStyles } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -23,7 +24,7 @@ export default function Home() {
         <CssBaseline />
         <div className={classes.container}>
           <Typography variant="h2">
-            <Box className="home-header">ASK MITTENS</Box>
+            <Box className={classes.paper}>ASK MITTENS</Box>
           </Typography>
         </div>
       </div>

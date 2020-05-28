@@ -23,12 +23,12 @@ class Header extends Component {
     if (this.props.auth) {
       return [
         <List style={flexContainer}>
-          <ListItem key="askQuestion">
+          <ListItem key="1">
             <a href="/forms" style={{ textDecoration: 'none' }}>
               <Button>Ask</Button>
             </a>
           </ListItem>
-          <ListItem key="blog">
+          <ListItem key="2">
             <a href="/blog" style={{ textDecoration: 'none' }}>
               <Button>Blog</Button>
             </a>
@@ -39,7 +39,7 @@ class Header extends Component {
               <Button>Profile</Button>
             </a>
           </ListItem>
-          <ListItem key="logout">
+          <ListItem key="4">
             <a href="/api/logout" style={{ textDecoration: 'none' }}>
               <Button>Logout</Button>
             </a>
@@ -48,7 +48,7 @@ class Header extends Component {
       ];
     } else {
       return (
-        <a href="/auth/google" style={{ textDecoration: 'none' }}>
+        <a href="/auth/google" style={{ textDecoration: 'none' }} key="5">
           <Button
             variant="contained"
             color="accent"

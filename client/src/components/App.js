@@ -6,11 +6,11 @@ import * as actions from '../actions';
 import Header from './Header/Header';
 import Landing from './Landing/Landing';
 import Home from './Home/Home';
-import MittensForm from './Form/MittensForm';
 import Profile from './Profile/Profile';
 import Blog from './Blog/Blog';
 import Post from './Blog/Post';
 import Footer from './Footer/Footer';
+import MittensForm from './Form/MittensForm';
 
 class App extends Component {
   componentDidMount() {

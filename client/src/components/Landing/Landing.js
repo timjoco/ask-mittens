@@ -1,10 +1,10 @@
 import React from 'react';
-import './Landing.css';
 import { makeStyles } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Landing = () => {
   const classes = useStyles();
+
   return (
     <Container>
       <div className={classes.container}>

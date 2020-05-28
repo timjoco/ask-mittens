@@ -1,37 +1,57 @@
-const sendgrid = require('sendgrid');
-const helper = sendgrid.mail;
-const keys = require('../config/keys');
+const nodemailer = require('nodemailer');
+const creds = require('../config/keys');
+const mongoose = require('mongoose');
+const requireLogin = require('../middlewares/requireLogin');
 
-class Mailer extends helper.Mail {
-  constructor({ subject, email }, content) {
-    super();
+const Form = mongoose.model('forms');
 
-    this.sgApi = sendgrid(keys.sendGridKey);
-    this.from_email = new helper.Email('askmittens1@gmail.com');
-    this.subject = subject;
-    this.message = new helper.Content('text/html', content);
-    this.email = new helper.Email(email);
+module.exports = (app) => {
+  const transport = {
+    service: 'gmail',
+    auth: {
+      user: creds.USER,
+      pass: creds.PASS,
+    },
+    tls: { rejectUnauthorized: false },
+  };
 
-    this.addContent(this.message);
-    this.addEmail();
-  }
+  const transporter = nodemailer.createTransport(transport);
 
-  addEmail() {
-    const personalize = new helper.Personalization();
-    personalize.addTo(this.email);
-    this.addPersonalization(personalize);
-  }
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Server is ready to take messages');
+    }
+  });
 
-  async send() {
-    const request = this.sgApi.emptyRequest({
-      method: 'POST',
-      path: '/v3/mail/send',
-      body: this.toJSON(),
+  app.post('/api/forms', requireLogin, (req, res, next) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const message = req.body.message;
+    const content = `name: ${name} \n email: ${email} \n message: ${message}`;
+
+    const form = new Form({
+      name,
+      email,
+      message,
+      _user: req.user.id,
+      dateSent: Date.now(),
     });
 
-    const response = await this.sgApi.API(request);
-    return response;
-  }
-}
+    const mail = {
+      from: creds.USER,
+      to: email,
+      subject: 'New Question for Mittens',
+      text: content,
+    };
 
-module.exports = Mailer;
+    transporter.sendMail(mail, (err, data) => {
+      if (err) {
+        res.json({ status: 'fail' });
+      } else {
+        res.json({ status: 'success' }, form.save());
+      }
+    });
+  });
+};
