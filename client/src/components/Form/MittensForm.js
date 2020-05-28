@@ -37,7 +37,7 @@ class MittensForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     axios({
       method: 'POST',
       url: '/api/forms',
@@ -46,11 +46,13 @@ class MittensForm extends Component {
       if (response.data.status === 'success') {
         alert('Message Sent.');
         this.resetForm();
+        console.log(response);
       } else if (response.data.status === 'fail') {
         alert('Message failed to send.');
         console.log(response);
       }
     });
+    this.props.history.push('/home');
   }
 
   resetForm() {
