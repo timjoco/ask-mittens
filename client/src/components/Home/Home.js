@@ -1,11 +1,9 @@
 import React from 'react';
-// import WelcomeContent from './WelcomeContent/WelcomeContent';
-import { makeStyles } from '@material-ui/core';
+import WelcomeContent from './WelcomeContent/WelcomeContent';
+import { makeStyles, Typography } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import './Home.css';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,8 +22,11 @@ export default function Home() {
         <CssBaseline />
         <div className={classes.container}>
           <Typography variant="h2">
-            <Box className={classes.paper}>ASK MITTENS</Box>
+            <Box textAlign="center" p={3} pb={8}>
+              what is ask mittens?
+            </Box>
           </Typography>
+          <WelcomeContent />
         </div>
       </div>
     </Container>

@@ -31,7 +31,7 @@ const Post = (props) => {
             className="post-body"
           />
           <hr />
-          <Link to="/blog">&larr; Back to the posts list</Link>
+          <Link to="/learn">&larr; Back to the posts list</Link>
         </div>
       </div>
     </Container>

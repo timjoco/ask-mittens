@@ -9,7 +9,7 @@ const PostSnippet = (props) => {
       <h3>
         <Link
           to={{
-            pathname: `/blog/${props.slug}`,
+            pathname: `/learn/${props.slug}`,
             state: props,
           }}
         >

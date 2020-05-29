@@ -52,6 +52,7 @@ module.exports = (app) => {
     });
 
     sg.API(request, function (error, response) {
+      // alert('Message Sent');
       console.log(response.statusCode);
       console.log(response.body);
       console.log(response.headers);

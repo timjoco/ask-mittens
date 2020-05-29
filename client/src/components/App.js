@@ -11,6 +11,7 @@ import Blog from './Blog/Blog';
 import Post from './Blog/Post';
 import Footer from './Footer/Footer';
 import MittensForm from './Form/MittensForm';
+import ThankYou from './Form/ThankYou';
 
 class App extends Component {
   componentDidMount() {
@@ -28,9 +29,10 @@ class App extends Component {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/forms" component={MittensForm} />
+                <Route exact path="/form/thanks" component={ThankYou} />
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/blog" component={Blog} />
-                <Route path="/blog/:slug" render={Post} />
+                <Route exact path="/learn" component={Blog} />
+                <Route path="/learn/:slug" render={Post} />
               </Switch>
             </BrowserRouter>
           </div>

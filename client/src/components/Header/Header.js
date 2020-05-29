@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import './Header.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { List, ListItem } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-// import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
   renderContentLogin() {
@@ -29,8 +27,8 @@ class Header extends Component {
             </a>
           </ListItem>
           <ListItem key="2">
-            <a href="/blog" style={{ textDecoration: 'none' }}>
-              <Button>Blog</Button>
+            <a href="/learn" style={{ textDecoration: 'none' }}>
+              <Button>Learn</Button>
             </a>
           </ListItem>
 
@@ -75,6 +73,7 @@ class Header extends Component {
           elevation={0}
           className="list"
         >
+          <CssBaseline />
           <Toolbar>
             <Grid justify="space-between" container spacing={1}>
               <Link to={this.props.auth ? '/home' : '/'}>

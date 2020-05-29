@@ -2,20 +2,45 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import './Profile.css';
+import Typography from '@material-ui/core/Typography';
 
 class Profile extends Component {
+  // state = {
+  //   posts: [],
+  // };
+
+  // componentDidMount = () => {
+  //   this.getUserQuestions();
+  // };
+
   renderProfile() {
     if (this.props.auth) {
       return (
         <div>
-          <h1> Welcome {this.props.auth.username}</h1>
+          <Typography variant="h4">
+            {' '}
+            Welcome {this.props.auth.username}
+          </Typography>
         </div>
       );
     } else {
-      return <div>please login!</div>;
+      return <div>getting name...</div>;
     }
   }
+
+  // getUserQuestions = () => {
+  //   axios
+  //     .get('/api')
+  //     .then((response) => {
+  //       const data = response.data;
+  //       this.setState({ posts: data });
+  //       console.log('Data received');
+  //     })
+  //     .catch(() => {
+  //       alert('Error retrieving data!');
+  //       // console.log(response);
+  //     });
+  // };
 
   render() {
     return (
@@ -23,9 +48,8 @@ class Profile extends Component {
         <CssBaseline />
         <div style={{ textAlign: 'center' }}>
           {this.renderProfile()}
-          <p>Profile Page Is In Development...</p>
+          <Typography>Profile Page Is In Development...</Typography>
         </div>
-        ;
       </Container>
     );
   }
