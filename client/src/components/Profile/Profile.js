@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import axios from 'axios';
 
 class Profile extends Component {
-  // state = {
-  //   posts: [],
-  // };
+  state = {
+    posts: [],
+  };
 
-  // componentDidMount = () => {
-  //   this.getUserQuestions();
-  // };
+  componentDidMount = () => {
+    this.getUserQuestions();
+  };
 
   renderProfile() {
     if (this.props.auth) {
@@ -28,19 +29,19 @@ class Profile extends Component {
     }
   }
 
-  // getUserQuestions = () => {
-  //   axios
-  //     .get('/api')
-  //     .then((response) => {
-  //       const data = response.data;
-  //       this.setState({ posts: data });
-  //       console.log('Data received');
-  //     })
-  //     .catch(() => {
-  //       alert('Error retrieving data!');
-  //       // console.log(response);
-  //     });
-  // };
+  getUserQuestions = () => {
+    axios
+      .get('/api/posts')
+      .then((response) => {
+        const data = response.data;
+        this.setState({ posts: data });
+        console.log('Data received');
+      })
+      .catch(() => {
+        alert('Error retrieving data!');
+        // console.log(response);
+      });
+  };
 
   render() {
     return (

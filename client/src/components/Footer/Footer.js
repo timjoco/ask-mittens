@@ -20,8 +20,8 @@ export default function Footer(props) {
       <div className={classes.container}>
         <div className={classes.center}>
           <List className={classes.inlineBlock}>
-            <ListItem>
-              <div>
+            <ListItem className={classes.inlineBlock}>
+              <div className={classes.block}>
                 @{new Date().getFullYear()} {''} || Created by Tim O'Connor
                 {''}
               </div>
@@ -45,6 +45,16 @@ export default function Footer(props) {
                 target="_blank"
               >
                 <i className="fab fa-linkedin fa-2x"></i>
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/privacy" className={classes.block}>
+                privacy policy
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/terms" className={classes.block}>
+                terms of service
               </a>
             </ListItem>
           </List>

@@ -10,24 +10,10 @@ const sg = require('sendgrid')(creds.sendGridKey);
 const Form = mongoose.model('forms');
 
 module.exports = (app) => {
-  // const transport = {
-  //   service: 'gmail',
-  //   auth: {
-  //     user: creds.USER,
-  //     pass: creds.PASS,
-  //   },
-  //   tls: { rejectUnauthorized: false },
-  // };
-
-  // const transporter = nodemailer.createTransport(transport);
-
-  // transporter.verify((error, success) => {
-  //   if (error) {
-  //     console.log(error);
-  //   } else {
-  //     console.log('Server is ready to take messages');
-  //   }
-  // });
+  app.get('/api/posts', requireLogin, (req, res, next) => {
+    const user = req.user;
+    res.send(user);
+  });
 
   app.post('/api/forms', requireLogin, (req, res, next) => {
     const { name, email, message } = req.body;
@@ -61,25 +47,5 @@ module.exports = (app) => {
 
       res.send(user);
     });
-
-    // const name = req.body.name;
-    // const email = req.body.email;
-    // const message = req.body.message;
-    // const content = `name: ${name} \n email: ${email} \n message: ${message}`;
-
-    // const mail = {
-    //   from: creds.USER,
-    //   to: email,
-    //   subject: 'New Question for Mittens',
-    //   text: content,
-    // };
-
-    // transporter.sendMail(mail, (err, data) => {
-    //   if (err) {
-    //     res.json({ status: 'fail' });
-    //   } else {
-    //     res.json({ status: 'success' }, form.save());
-    //   }
-    // });
   });
 };

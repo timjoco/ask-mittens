@@ -12,6 +12,8 @@ import Post from './Blog/Post';
 import Footer from './Footer/Footer';
 import MittensForm from './Form/MittensForm';
 import ThankYou from './Form/ThankYou';
+import Privacy from './Privacy/Privacy';
+import Terms from './Privacy/Terms';
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +35,8 @@ class App extends Component {
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/learn" component={Blog} />
                 <Route path="/learn/:slug" render={Post} />
+                <Route exact path="/privacy" render={Privacy} />
+                <Route exact path="/terms" render={Terms} />
               </Switch>
             </BrowserRouter>
           </div>
