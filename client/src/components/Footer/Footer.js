@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { List, ListItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './footerStyle';
+import butterLogo from '../../assets/butter-b.png';
 
 const useStyles = makeStyles(styles);
 
@@ -26,6 +27,7 @@ export default function Footer(props) {
                 {''}
               </div>
             </ListItem>
+
             <ListItem className={classes.inlineBlock}>
               <a
                 href="https://github.com/timjoco"
@@ -57,6 +59,16 @@ export default function Footer(props) {
                 terms of service
               </a>
             </ListItem>
+          </List>
+          <List>
+            <a
+              href="https://buttercms.com/"
+              className={classes.block}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img src={butterLogo} alt="Butter Logo" width="20%" />
+            </a>
           </List>
         </div>
       </div>
