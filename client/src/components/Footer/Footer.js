@@ -67,7 +67,7 @@ export default function Footer(props) {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img src={butterLogo} alt="Butter Logo" width="20%" />
+              <img src={butterLogo} alt="Butter Logo" width="15%" />
             </a>
           </List>
         </div>

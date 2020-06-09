@@ -6,12 +6,26 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 
 class Profile extends Component {
-  state = {
-    posts: [],
-  };
+  // state = {
+  //   posts: [],
+  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+    };
+  }
 
   componentDidMount = () => {
-    this.getUserQuestions();
+    // this.getUserQuestions();
+    axios
+      .get('/api/user_posts', {
+        headers: { crossDomain: true, 'Content-type': 'application/json' },
+      })
+      .then((res) => {
+        this.setState({ posts: res.data });
+        console.log(JSON.stringify(this.state.posts));
+      });
   };
 
   renderProfile() {
@@ -29,19 +43,18 @@ class Profile extends Component {
     }
   }
 
-  getUserQuestions = () => {
-    axios
-      .get('/api/posts')
-      .then((response) => {
-        const data = response.data;
-        this.setState({ posts: data });
-        console.log('Data received');
-      })
-      .catch(() => {
-        alert('Error retrieving data!');
-        // console.log(response);
-      });
-  };
+  // getUserQuestions = () => {
+  //   axios
+  //     .get('/api/user_posts')
+  //     .then((response) => {
+  //       const data = response.data;
+  //       this.setState({ posts: data });
+  //       console.log('Data received');
+  //     })
+  //     .catch((error) => {
+  //       alert('Error retrieving data!');
+  //     });
+  // };
 
   render() {
     return (

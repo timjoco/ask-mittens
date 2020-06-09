@@ -62,7 +62,13 @@ class MittensForm extends Component {
         data: this.state,
       },
       await this.props.history.push('/form/thanks')
-    );
+    )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     // .then((res) => {
     //   if (res.data.status === 'success') {
     //     this.resetForm();
